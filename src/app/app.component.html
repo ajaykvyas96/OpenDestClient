@@ -329,23 +329,42 @@
 
 <div class="content" role="main">
 
-  <div>
+  <div class="container">
     <form [formGroup]="prodSearchForm" (ngSubmit)="onSubmit()">
       <!-- Product name, Rating and Price range -->
-      <label for="productname">Product Name: </label>
-      <input class="form-control" id="productname" formControlName="productname" type="text" name="productname">
-      <label for="rating">Rating: </label>
-      <input id="rating" type="number" name="rating" formControlName="rating"> and Above
-      <label for="minPrice">Min Price: </label>
-      <input id="minPrice" type="number" name="minPrice" formControlName="minPrice">
-      <label for="maxPrice">Max Price: </label>
-      <input id="maxPrice" type="number" name="maxPrice" formControlName="maxPrice">
-      <button type="submit" name="submit">Submit</button>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="productname">Product Name: </label>
+            <input class="form-control" id="productname" formControlName="productname" type="text" name="productname">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="rating">Min Rating: </label>
+            <input class="form-control" id="rating" type="number" name="rating" formControlName="rating">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="minPrice">Min Price: </label>
+            <input class="form-control" id="minPrice" type="number" name="minPrice" formControlName="minPrice">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="maxPrice">Max Price: </label>
+            <input class="form-control" id="maxPrice" type="number" name="maxPrice" formControlName="maxPrice">
+          </div>
+        </div>
+      </div>
+      
+      <button style="float: right;" class="btn-primary" type="submit" name="submit">Search</button>
     </form>
   </div>
   <br>
   <div>
-    <table border="1" *ngIf="products.length > 0">
+    <table class="table" *ngIf="products.length > 0">
       <thead>
         <tr>
           <th style="cursor: pointer;" (click)="sort('ProductName')">Product Name</th>
